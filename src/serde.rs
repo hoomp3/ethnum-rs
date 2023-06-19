@@ -764,7 +764,7 @@ mod tests {
 
         assert_eq!(
             bin_ser!(compressed_bytes::le::serialize, U256::ZERO),
-            vec![]
+            Vec::<u8>::new(),
         );
         assert_eq!(
             bin_ser!(compressed_bytes::le::serialize, U256::MAX),
@@ -782,7 +782,7 @@ mod tests {
         });
         assert_eq!(
             bin_ser!(compressed_bytes::le::serialize, I256::ZERO),
-            vec![]
+            Vec::<u8>::new(),
         );
         assert_eq!(
             bin_ser!(compressed_bytes::le::serialize, I256::new(-1)),
@@ -799,7 +799,7 @@ mod tests {
 
         assert_eq!(
             bin_ser!(compressed_bytes::be::serialize, U256::ZERO),
-            vec![]
+            Vec::<u8>::new(),
         );
         assert_eq!(
             bin_ser!(compressed_bytes::be::serialize, U256::MAX),
@@ -817,7 +817,7 @@ mod tests {
         });
         assert_eq!(
             bin_ser!(compressed_bytes::be::serialize, I256::ZERO),
-            vec![]
+            Vec::<u8>::new(),
         );
         assert_eq!(
             bin_ser!(compressed_bytes::be::serialize, I256::new(-1)),

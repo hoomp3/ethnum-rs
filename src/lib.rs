@@ -5,7 +5,7 @@
 //! primitive integer types.
 
 #![deny(missing_docs)]
-#![no_std]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(test)]
 extern crate alloc;
@@ -31,6 +31,7 @@ pub mod intrinsics;
 mod parse;
 #[cfg(feature = "serde")]
 pub mod serde;
+mod support;
 mod uint;
 
 /// Macro for 256-bit signed integer literal.

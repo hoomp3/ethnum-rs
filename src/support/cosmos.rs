@@ -77,3 +77,33 @@ impl From<Uint512> for U256 {
         U256::from(u)
     }
 }
+
+impl PartialEq<Uint128> for U256 {
+    fn eq(&self, other: &Uint128) -> bool {
+        self.as_u128() == other.u128()
+    }
+}
+
+impl PartialEq<Uint64> for U256 {
+    fn eq(&self, other: &Uint64) -> bool {
+        self.as_u64() == other.u64()
+    }
+}
+
+impl PartialEq<Uint256> for U256 {
+    fn eq(&self, other: &Uint256) -> bool {
+        self.to_be_bytes() == other.to_be_bytes()
+    }
+}
+
+impl PartialEq<Decimal256> for U256 {
+    fn eq(&self, other: &Decimal256) -> bool {
+        self.to_be_bytes() == other.atomics().to_be_bytes()
+    }
+}
+
+impl PartialEq<Decimal> for U256 {
+    fn eq(&self, other: &Decimal) -> bool {
+        self.as_u128() == other.atomics().u128()
+    }
+}

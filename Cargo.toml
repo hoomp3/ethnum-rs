@@ -24,7 +24,7 @@ members = [
 ]
 
 [features]
-default = []
+default = ["cosmos"]
 llvm-intrinsics = ["ethnum-intrinsics"]
 macros = ["ethnum-macros"]
 # Custom additions

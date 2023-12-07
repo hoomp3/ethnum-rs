@@ -29,7 +29,6 @@ llvm-intrinsics = ["ethnum-intrinsics"]
 macros = ["ethnum-macros"]
 # Custom additions
 arbitrary = ["dep:arbitrary", "std"]
-borsh = ["dep:borsh"]
 cosmos = ["dep:cosmwasm-std"]
 proptest = ["dep:proptest", "std"]
 std = []
@@ -38,7 +37,6 @@ std = []
 ethnum-intrinsics = { version = "=1.1.0", path = "intrinsics", optional = true }
 ethnum-macros = { version = "=1.1.0", path = "macros", optional = true }
 serde = { version = "1.0.162", default-features = false, optional = true }
-cosmwasm-std = { version = "1.2.6", optional = true }
-borsh = { git = "https://github.com/hoomp3/borsh-rs", branch = "cosmwasm", optional = true }
+cosmwasm-std = { version = "1.5", optional = true }
 arbitrary = { version = "1.3.0", features = ["derive"], optional = true }
 proptest = { version = "1.2", optional = true }

@@ -21,7 +21,6 @@ use core::num::ParseIntError;
     Hash,
     PartialEq,
 )]
-#[cfg_attr(feature = "borsh", derive(borsh::BorshSerialize, borsh::BorshDeserialize))]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 #[repr(transparent)]
 pub struct U256(pub [u128; 2]);

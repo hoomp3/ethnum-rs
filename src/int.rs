@@ -14,7 +14,6 @@ use core::num::ParseIntError;
 
 /// A 256-bit signed integer type.
 #[derive(Clone, Copy, Default, Eq, Hash, PartialEq)]
-#[cfg_attr(feature = "borsh", derive(borsh::BorshSerialize, borsh::BorshDeserialize))]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 #[repr(transparent)]
 pub struct I256(pub [i128; 2]);

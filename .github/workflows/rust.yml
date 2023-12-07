@@ -15,6 +15,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install Clang
+      run: |
+        LLVM_VERSION=$(rustc --version --verbose | sed -n 's/^LLVM version: \([0-9]*\).*$/\1/p')
+        curl -s https://apt.llvm.org/llvm.sh | sudo bash -s -- ${LLVM_VERSION}
+        echo "CLANG=clang-${LLVM_VERSION}" >> ${GITHUB_ENV}
     - name: Lint
       run: |
         cargo fmt --all -- --check
@@ -31,5 +36,8 @@ jobs:
     - name: Test Additional Features
       run: |
         cargo clippy --features serde --all-targets -- -D warnings
-        cargo test --features macros,serde
-        cargo test --features macros,serde --release
+        cargo test --features serde
+        cargo test --features serde --release
+    - name: Build Deprecated Features
+      run: |
+        cargo clippy --features macros --all-targets -- -D warnings
